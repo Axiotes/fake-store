@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card-product',
@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrl: './card-product.component.scss'
 })
 export class CardProductComponent {
+  @Input({ required: true })
+  public title!: string;
 
+  @Input({ required: true })
+  public rating!: number;
+
+  @Input({ required: true })
+  public count!: number;
+
+  @Input({ required: true })
+  public price!: number;
 }
