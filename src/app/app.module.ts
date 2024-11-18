@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideHttpClient } from '@angular/common/http';
 import { CardProductComponent } from './components/card-product/card-product.component';
+import { PricePipe } from './pipes/price.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CardProductComponent
+    CardProductComponent,
+    PricePipe
   ],
   imports: [
     BrowserModule,
