@@ -7,6 +7,9 @@ import { Component, Input } from '@angular/core';
 })
 export class CardProductComponent {
   @Input({ required: true })
+  public image!: string;
+
+  @Input({ required: true })
   public title!: string;
 
   @Input({ required: true })

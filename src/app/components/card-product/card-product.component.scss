@@ -1,4 +1,5 @@
 @import "../../../style/_mixins";
+@import "../../../style/_variables";
 
 .card {
     @include flex-center(column, 20px);
@@ -11,6 +12,12 @@
     box-shadow: 0 0 10px rgba(black, 0.1);
     cursor: pointer;
     transition: 0.5s;
+
+    @media (max-width: $screen-XSmall) {
+        max-width: 150px;
+        height: 250px;
+        @include flex-center(column, 10px);
+    }
 
     &:hover{
         transform: scale(1.05);
@@ -37,6 +44,10 @@
             font-weight: 500;
             font-size: 18px;
             color: black;
+
+            @media (max-width: $screen-XSmall) {
+                font-size: 16px;
+            }
         }
 
         &-rating {
@@ -53,6 +64,10 @@
             font-size: 22px;
             color: black;
             font-weight: 600;
+
+            @media (max-width: $screen-XSmall) {
+                font-size: 20px;
+            }
         }
     }
 }
