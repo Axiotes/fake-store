@@ -4,18 +4,18 @@ import { CardProductComponent } from './card-product/card-product.component';
 import { LucideAngularModule } from 'lucide-angular';
 import { PipesModule } from '../pipes/pipes.module';
 import { HeaderComponent } from './header/header.component';
-import { LogoComponent } from './logo/logo.component';
+import { RouterLink } from '@angular/router';
 
 @NgModule({
   declarations: [
     CardProductComponent,
     HeaderComponent,
-    LogoComponent,
   ],
   imports: [
     CommonModule,
     LucideAngularModule,
-    PipesModule
+    PipesModule,
+    RouterLink
   ],
   exports: [
     CardProductComponent,
