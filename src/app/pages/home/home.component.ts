@@ -4,6 +4,7 @@ import { Category } from '../../../types/category.type';
 import { ApiProductsService } from '../../services/api-products.service';
 import { Product } from '../../../types/product.type';
 import { BreakpointsScreenService } from '../../services/breakpoints-screen.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private apiCategoriesService: ApiCategoriesService,
     private apiProductsService: ApiProductsService,
-    private breakpointsScreenService: BreakpointsScreenService
+    private breakpointsScreenService: BreakpointsScreenService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -51,6 +53,10 @@ export class HomeComponent implements OnInit {
         this.quantityProducts = 0;
       }
     }
+  }
+
+  public selectCategory(category: Category): void {
+    this.router.navigate(['/category', category]);
   }
 
   private getAllCategories(): void {

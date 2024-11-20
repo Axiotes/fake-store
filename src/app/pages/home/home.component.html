@@ -6,6 +6,7 @@
     <app-card-category
       *ngFor="let category of allCategories"
       [category]="category"
+      (click)="selectCategory(category)"
     ></app-card-category>
   </div>
   <div class="home__products">
