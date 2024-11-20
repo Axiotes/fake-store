@@ -9,11 +9,11 @@ export class TruncatePipe implements PipeTransform {
       return '';
     }
 
-    if (value.length <= 65) {
+    if (value.length <= 55) {
       return value;
     }
 
-    const valueTrucated = value.slice(0, 62);
+    const valueTrucated = value.slice(0, 55);
 
     return `${valueTrucated}...`;
   }

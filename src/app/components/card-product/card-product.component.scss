@@ -12,8 +12,7 @@
     transition: 0.5s;
 
     @media (max-width: $screen-XSmall) {
-        max-width: 150px;
-        height: 250px;
+        max-width: 130px;
         @include flex-center(column, 10px);
     }
 
@@ -44,7 +43,7 @@
             color: black;
 
             @media (max-width: $screen-XSmall) {
-                font-size: 16px;
+                font-size: 14px;
             }
         }
 
@@ -54,6 +53,10 @@
             font-size: 14px;
             color: black;
             font-weight: 300;
+
+            @media (max-width: $screen-XSmall) {
+                font-size: 12px;
+            }
         }
 
         &-price {
@@ -64,7 +67,7 @@
             font-weight: 600;
 
             @media (max-width: $screen-XSmall) {
-                font-size: 20px;
+                font-size: 18px;
             }
         }
     }
