@@ -7,11 +7,13 @@ import { provideHttpClient } from '@angular/common/http';
 import { ComponentsModule } from './components/components.module';
 import { HomeComponent } from './pages/home/home.component';
 import { CommonModule } from '@angular/common';
+import { CategoryComponent } from './pages/category/category.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,

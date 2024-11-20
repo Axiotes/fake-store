@@ -1,0 +1,14 @@
+<main class="category">
+  <h1>{{ category }}</h1>
+
+  <div class="category__products">
+    <app-card-product
+      *ngFor="let product of products"
+      [image]="product.image"
+      [title]="product.title"
+      [rate]="product.rating.rate"
+      [count]="product.rating.count"
+      [price]="product.price"
+    ></app-card-product>
+  </div>
+</main>

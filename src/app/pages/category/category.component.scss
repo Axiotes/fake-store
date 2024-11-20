@@ -1,0 +1,37 @@
+@import "../../../style/_mixins";
+@import "../../../style/_variables";
+
+.category {
+  background-color: $light-gray;
+  width: 100%;
+  min-height: 88vh;
+  padding: 5%;
+  @include flex-center(column, 50px);
+
+  h1 {
+    font-size: 32px;
+    color: $blue;
+    text-transform: capitalize;
+  }
+
+  &__products {
+    width: 100%;
+    max-width: 1380px;
+    @include grid-container(4);
+    row-gap: 50px;
+
+    @media (min-width: $screen-Small) and (max-width: $screen-Medium) {
+      @include grid-container(3);
+      row-gap: 50px;
+    }
+
+    @media (min-width: $screen-XSmall) and (max-width: $screen-Small) {
+      @include grid-container(3);
+      row-gap: 50px;
+    }
+
+    @media (max-width: $screen-XSmall) {
+      @include grid-container(2, 10px);
+    }
+  }
+}
