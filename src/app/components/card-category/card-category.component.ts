@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card-category',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './card-category.component.scss'
 })
 export class CardCategoryComponent {
-
+  @Input({ required: true })
+  public category!: string
 }
