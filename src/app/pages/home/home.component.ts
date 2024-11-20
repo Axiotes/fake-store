@@ -19,6 +19,11 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getAllCategories();
+    this.getAllProducts();
+  }
+
+  private getAllCategories(): void {
     this.apiCategoriesService.getAllCategories().subscribe({
       next: (response) => {
         this.allCategories = response;
@@ -27,7 +32,9 @@ export class HomeComponent implements OnInit {
         console.log(err);
       },
     });
+  }
 
+  private getAllProducts(): void {
     this.apiProductsService.getAllProducts().subscribe({
       next: (response) => {
         this.allProducts = response;

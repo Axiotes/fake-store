@@ -2,12 +2,23 @@
 @import "../../../style/_variables";
 
 :host {
-    width: 100%;
-    min-height: 88vh;
+  width: 100%;
+  min-height: 88vh;
 }
 
 .home {
-    background-color: $light-gray;
+  background-color: $light-gray;
+  width: 100%;
+  min-height: 88vh;
+
+  &__categories {
     width: 100%;
-    min-height: 88vh;
+    @include grid-container(4);
+  }
+
+  &__products {
+    width: 100%;
+    @include grid-container(4);
+    padding: 5%;
+  }
 }
