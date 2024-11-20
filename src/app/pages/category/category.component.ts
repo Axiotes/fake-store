@@ -11,6 +11,7 @@ import { Category } from '../../../types/category.type';
 })
 export class CategoryComponent implements OnInit {
   public products: Product[] = [];
+  public category!: Category;
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -19,8 +20,8 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.activeRoute.paramMap.subscribe((params) => {
-      const category = params.get('category') as Category;
-      this.getProductsCategory(category);
+      this.category = params.get('category') as Category;
+      this.getProductsCategory(this.category);
     });
   }
 
