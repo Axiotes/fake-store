@@ -5,11 +5,13 @@ import { LucideAngularModule } from 'lucide-angular';
 import { PipesModule } from '../pipes/pipes.module';
 import { HeaderComponent } from './header/header.component';
 import { RouterLink } from '@angular/router';
+import { CardCategoryComponent } from './card-category/card-category.component';
 
 @NgModule({
   declarations: [
     CardProductComponent,
     HeaderComponent,
+    CardCategoryComponent,
   ],
   imports: [
     CommonModule,
@@ -20,6 +22,7 @@ import { RouterLink } from '@angular/router';
   exports: [
     CardProductComponent,
     HeaderComponent,
+    CardCategoryComponent,
   ]
 })
 export class ComponentsModule { }
