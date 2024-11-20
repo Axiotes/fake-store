@@ -7,7 +7,7 @@
   </div>
   <div class="home__products">
     <app-card-product
-      *ngFor="let product of allProducts"
+      *ngFor="let product of allProducts.slice(0, quantityProducts)"
       [image]="product.image"
       [title]="product.title"
       [rate]="product.rating.rate"
@@ -15,4 +15,11 @@
       [price]="product.price"
     ></app-card-product>
   </div>
+  <button
+    *ngIf="quantityProducts < allProducts.length"
+    (click)="loadMore()"
+    class="home__load-more"
+  >
+    LOAD MORE
+  </button>
 </main>

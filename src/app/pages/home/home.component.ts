@@ -10,8 +10,9 @@ import { Product } from '../../../types/product.type';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
-  public allCategories!: Category[];
-  public allProducts!: Product[];
+  public allCategories: Category[] = [];
+  public allProducts: Product[] = [];
+  public quantityProducts: number = 8;
 
   constructor(
     private apiCategoriesService: ApiCategoriesService,
@@ -21,6 +22,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getAllCategories();
     this.getAllProducts();
+  }
+
+  public loadMore(): void {
+    this.quantityProducts += 4;
   }
 
   private getAllCategories(): void {

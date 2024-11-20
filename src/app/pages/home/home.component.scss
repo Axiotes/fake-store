@@ -10,6 +10,8 @@
   background-color: $light-gray;
   width: 100%;
   min-height: 88vh;
+  padding: 5%;
+  @include flex-center(column, 50px);
 
   &__categories {
     width: 100%;
@@ -20,6 +22,19 @@
     width: 100%;
     @include grid-container(4);
     row-gap: 50px;
-    padding: 5%;
+  }
+
+  &__load-more {
+    border: none;
+    border-radius: 10px;
+    background-color: $blue;
+    height: 40px;
+    width: 100%;
+    max-width: 300px;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(black, 0.1);
   }
 }
