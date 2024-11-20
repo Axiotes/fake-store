@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Product } from '../../../types/product.type';
 
 @Component({
   selector: 'app-carousel',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './carousel.component.scss'
 })
 export class CarouselComponent {
-
+  @Input({ required: true }) products!: Product[];
 }

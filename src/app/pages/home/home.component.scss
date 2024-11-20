@@ -19,16 +19,20 @@
 
   &__carousel {
     width: 100%;
+    max-width: 1380px;
+    margin: 0 auto;
     @include flex-center;
   }
 
   &__categories {
     width: 100%;
+    max-width: 1380px;
     @include grid-container(4);
   }
 
   &__products {
     width: 100%;
+    max-width: 1380px;
     @include grid-container(4);
     row-gap: 50px;
 

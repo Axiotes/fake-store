@@ -13,6 +13,7 @@ import { BreakpointsScreenService } from '../../services/breakpoints-screen.serv
 export class HomeComponent implements OnInit {
   public allCategories: Category[] = [];
   public allProducts: Product[] = [];
+  public eletronicProducts: Product[] = [];
   public quantityProducts: number = 0;
 
   constructor(
@@ -24,6 +25,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getAllCategories();
     this.getAllProducts();
+    this.getEletronicProducts();
     this.setQuantityProducts();
   }
 
@@ -66,6 +68,17 @@ export class HomeComponent implements OnInit {
     this.apiProductsService.getAllProducts().subscribe({
       next: (response) => {
         this.allProducts = response;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  private getEletronicProducts(): void {
+    this.apiCategoriesService.getCategory('electronics').subscribe({
+      next: (response) => {
+        this.eletronicProducts = response;
       },
       error: (err) => {
         console.log(err);

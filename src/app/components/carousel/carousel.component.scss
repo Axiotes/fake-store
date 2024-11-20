@@ -1,2 +1,57 @@
 @import "../../../style/_mixins";
 @import "../../../style/_variables";
+
+.carousel {
+  width: 100%;
+  max-width: 1280px;
+  height: 300px;
+  @include grid-container(6);
+  background-color: white;
+  overflow-y: scroll;
+  border-radius: 15px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__products {
+    @include flex-center(row, 50px);
+    max-width: 1280px;
+    width: 100%;
+    height: 100%;
+    padding: 0 50px;
+
+    picture {
+      height: 250px;
+      width: 300px;
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+
+    &-infos {
+      width: 300px;
+
+      h2 {
+        color: $blue;
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      p {
+        color: $blue;
+        font-size: 28px;
+        font-weight: bold;
+        margin-top: 15px;
+      }
+    }
+
+    p {
+      width: 700px;
+      color: $blue;
+    }
+  }
+}

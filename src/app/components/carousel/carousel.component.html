@@ -1,1 +1,12 @@
-<p>carousel works!</p>
+<div class="carousel">
+  <div class="carousel__products" *ngFor="let product of products">
+    <picture>
+      <img [src]="product.image" />
+    </picture>
+    <div class="carousel__products-infos">
+      <h2>{{ product.title }}</h2>
+      <p>{{ product.price | price }}</p>
+    </div>
+    <p>{{ product.description }}</p>
+  </div>
+</div>
