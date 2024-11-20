@@ -8,12 +8,14 @@ import { ComponentsModule } from './components/components.module';
 import { HomeComponent } from './pages/home/home.component';
 import { CommonModule } from '@angular/common';
 import { CategoryComponent } from './pages/category/category.component';
+import { DetailsComponent } from './pages/details/details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CategoryComponent
+    CategoryComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

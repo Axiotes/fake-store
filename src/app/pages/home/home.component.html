@@ -17,6 +17,7 @@
       [rate]="product.rating.rate"
       [count]="product.rating.count"
       [price]="product.price"
+      (click)="selectedProduct(product.id)"
     ></app-card-product>
   </div>
   <button

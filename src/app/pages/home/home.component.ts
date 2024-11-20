@@ -59,6 +59,10 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/category', category]);
   }
 
+  public selectedProduct(id: number): void {
+    this.router.navigate(['/details', id]);
+  }
+
   private getAllCategories(): void {
     this.apiCategoriesService.getAllCategories().subscribe({
       next: (response) => {
