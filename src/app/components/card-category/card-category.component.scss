@@ -1,0 +1,27 @@
+@import "../../../style/_mixins";
+@import "../../../style/_variables";
+
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: $blue;
+    border-radius: 15px;
+    @include flex-center;
+    cursor: pointer;
+
+    @media (max-width: $screen-XSmall) {
+        width: 65px;
+        height: 65px;
+    }
+
+    p {
+        color: white;
+        font-weight: 600;
+        font-size: 18px;
+        text-align: center;
+
+        @media (max-width: $screen-XSmall) {
+            font-size: 14px;
+        }
+    }
+}
