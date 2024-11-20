@@ -1,0 +1,65 @@
+@import "../../../style/_mixins";
+@import "../../../style/_variables";
+
+:host {
+  width: 100%;
+  min-height: 88vh;
+}
+
+.home {
+  background-color: $light-gray;
+  width: 100%;
+  min-height: 88vh;
+  padding: 5%;
+  @include flex-center(column, 50px);
+
+  @media (max-width: $screen-XSmall) {
+    @include flex-center(column, 30px);
+  }
+
+  &__categories {
+    width: 100%;
+    @include grid-container(4);
+  }
+
+  &__products {
+    width: 100%;
+    @include grid-container(4);
+    row-gap: 50px;
+
+    @media (min-width: $screen-Small) and (max-width: $screen-Medium) {
+      @include grid-container(3);
+      row-gap: 50px;
+    }
+
+    @media (min-width: $screen-XSmall) and (max-width: $screen-Small) {
+      @include grid-container(3);
+      row-gap: 50px;
+    }
+
+    @media (max-width: $screen-XSmall) {
+      @include grid-container(2, 10px);
+    }
+  }
+
+  &__load-more {
+    border: none;
+    border-radius: 10px;
+    border: 1px solid $blue;
+    background-color: transparent;
+    height: 40px;
+    width: 100%;
+    max-width: 300px;
+    color: $blue;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(black, 0.1);
+    transition: 0.5s;
+
+    &:hover {
+      background-color: $blue;
+      color: white;
+    }
+  }
+}

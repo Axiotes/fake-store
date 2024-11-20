@@ -13,7 +13,7 @@ export class CardProductComponent {
   public title!: string;
 
   @Input({ required: true })
-  public rating!: number;
+  public rate!: number;
 
   @Input({ required: true })
   public count!: number;
