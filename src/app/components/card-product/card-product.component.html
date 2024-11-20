@@ -3,7 +3,7 @@
     <img [src]="image" alt="Imagem do produto" />
   </picture>
   <div class="card__infos">
-    <h3>{{ title }}</h3>
+    <h3>{{ title | truncate }}</h3>
     <p class="card__infos-rating">Rating: {{ rate }} ({{ count }})</p>
     <p class="card__infos-price">{{ price | price }}</p>
   </div>

@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PricePipe } from './price.pipe';
+import { TruncatePipe } from './truncate.pipe';
 
 @NgModule({
   declarations: [
-    PricePipe
+    PricePipe,
+    TruncatePipe
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    PricePipe
+    PricePipe,
+    TruncatePipe
   ]
 })
 export class PipesModule { }
