@@ -4,7 +4,6 @@ import {
   ElementRef,
   Input,
   NgZone,
-  OnDestroy,
   ViewChild,
 } from '@angular/core';
 import { Product } from '../../../types/product.type';
