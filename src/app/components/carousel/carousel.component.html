@@ -1,12 +1,18 @@
-<div class="carousel">
-  <div class="carousel__products" *ngFor="let product of products">
-    <picture>
-      <img [src]="product.image" />
-    </picture>
-    <div class="carousel__products-infos">
-      <h2>{{ product.title }}</h2>
-      <p>{{ product.price | price }}</p>
+<div class="container">
+  <div class="container__carousel" #carousel>
+    <div class="container__carousel__products" *ngFor="let product of products">
+      <picture>
+        <img [src]="product.image" />
+      </picture>
+      <div class="container__carousel__products-infos">
+        <h2>{{ product.title }}</h2>
+        <p>{{ product.price | price }}</p>
+      </div>
+      <p class="container__carousel__products-description">{{ product.description }}</p>
     </div>
-    <p class="carousel__products-description">{{ product.description }}</p>
+  </div>
+  <div class="container__buttons">
+    <button (click)="scrollLeft()"><</button>
+    <button (click)="scrollRight()">></button>
   </div>
 </div>
