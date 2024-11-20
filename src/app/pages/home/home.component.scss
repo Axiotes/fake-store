@@ -33,7 +33,7 @@
     }
 
     @media (min-width: $screen-XSmall) and (max-width: $screen-Small) {
-      @include grid-container(2);
+      @include grid-container(3);
       row-gap: 50px;
     }
 
