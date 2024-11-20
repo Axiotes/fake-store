@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiCategoriesService } from '../../services/api-categories.service';
 import { Category } from '../../../types/category.type';
+import { ApiProductsService } from '../../services/api-products.service';
+import { Product } from '../../../types/product.type';
 
 @Component({
   selector: 'app-home',
@@ -9,14 +11,26 @@ import { Category } from '../../../types/category.type';
 })
 export class HomeComponent implements OnInit {
   public allCategories!: Category[];
+  public allProducts!: Product[];
 
-  constructor(private apiCategoriesService: ApiCategoriesService) {}
+  constructor(
+    private apiCategoriesService: ApiCategoriesService,
+    private apiProductsService: ApiProductsService
+  ) {}
 
   ngOnInit(): void {
-    this.apiCategoriesService.getCategories().subscribe({
+    this.apiCategoriesService.getAllCategories().subscribe({
       next: (response) => {
         this.allCategories = response;
-        console.log(this.allCategories);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+
+    this.apiProductsService.getAllProducts().subscribe({
+      next: (response) => {
+        this.allProducts = response;
       },
       error: (err) => {
         console.log(err);
