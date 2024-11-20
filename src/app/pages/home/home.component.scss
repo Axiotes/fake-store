@@ -1,0 +1,13 @@
+@import "../../../style/_mixins";
+@import "../../../style/_variables";
+
+:host {
+    width: 100%;
+    min-height: 88vh;
+}
+
+.home {
+    background-color: $light-gray;
+    width: 100%;
+    min-height: 88vh;
+}
