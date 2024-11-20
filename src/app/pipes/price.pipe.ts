@@ -11,8 +11,11 @@ export class PricePipe implements PipeTransform {
 
     const strPrice = price.toString();
     const priceArray = strPrice.split('.');
-    const finalPrice = `US$ ${priceArray[0]},${priceArray[1]}`;
 
-    return finalPrice;
+    if (!priceArray[1]) {
+      return `US$ ${priceArray[0]},00`;
+    }
+
+    return `US$ ${priceArray[0]},${priceArray[1]}`;
   }
 }
