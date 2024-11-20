@@ -19,6 +19,7 @@
   &__products {
     width: 100%;
     @include grid-container(4);
+    row-gap: 50px;
     padding: 5%;
   }
 }
