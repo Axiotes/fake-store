@@ -6,12 +6,14 @@ import { PipesModule } from '../pipes/pipes.module';
 import { HeaderComponent } from './header/header.component';
 import { RouterLink } from '@angular/router';
 import { CardCategoryComponent } from './card-category/card-category.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
     CardProductComponent,
     HeaderComponent,
     CardCategoryComponent,
+    CarouselComponent,
   ],
   imports: [
     CommonModule,
@@ -23,6 +25,7 @@ import { CardCategoryComponent } from './card-category/card-category.component';
     CardProductComponent,
     HeaderComponent,
     CardCategoryComponent,
+    CarouselComponent,
   ]
 })
 export class ComponentsModule { }

@@ -1,0 +1,91 @@
+@import "../../../style/_mixins";
+@import "../../../style/_variables";
+
+:host {
+  max-width: 1140px;
+  width: 100%;
+  display: flex;
+}
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  height: 300px;
+  position: relative;
+
+  &__carousel {
+    width: 100%;
+    max-width: 1140px;
+    height: 300px;
+    @include grid-container(6, 0);
+    background-color: white;
+    overflow-y: scroll;
+    border-radius: 15px;
+    scroll-behavior: smooth;
+    position: relative;
+  
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  
+    &__products {
+      @include flex-center(row, 10px);
+      width: 1140px;
+      height: 100%;
+  
+      picture {
+        height: 250px;
+        width: 250px;
+  
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+        }
+      }
+  
+      &-infos {
+        width: 200px;
+  
+        h2 {
+          color: $blue;
+          font-size: 16px;
+          font-weight: 600;
+        }
+  
+        p {
+          color: $blue;
+          font-size: 28px;
+          font-weight: bold;
+          margin-top: 15px;
+        }
+      }
+  
+      &-description {
+        width: 580px;
+        color: $blue;
+      }
+    }
+  }
+
+  &__buttons {
+    position: absolute;
+    top: calc(50% - 20px);
+    right: -20px;
+    width: calc(100% + 40px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    button {
+      border: none;
+      background-color: $blue;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  }
+}

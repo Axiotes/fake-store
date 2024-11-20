@@ -17,13 +17,21 @@
     @include flex-center(column, 30px);
   }
 
+  &__carousel {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+
   &__categories {
     width: 100%;
+    max-width: 1380px;
     @include grid-container(4);
   }
 
   &__products {
     width: 100%;
+    max-width: 1380px;
     @include grid-container(4);
     row-gap: 50px;
 
