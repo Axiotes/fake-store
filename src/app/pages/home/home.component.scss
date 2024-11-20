@@ -17,6 +17,11 @@
     @include flex-center(column, 30px);
   }
 
+  &__carousel {
+    width: 100%;
+    @include flex-center;
+  }
+
   &__categories {
     width: 100%;
     @include grid-container(4);
