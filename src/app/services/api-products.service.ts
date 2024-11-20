@@ -14,4 +14,8 @@ export class ApiProductsService {
   public getAllProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.baseURL}/products`);
   }
+
+  public getProduct(id: string): Observable<Product> {
+    return this.http.get<Product>(`${this.baseURL}/products/${id}`);
+  }
 }
