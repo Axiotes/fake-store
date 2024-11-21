@@ -1,0 +1,32 @@
+<main class="details">
+  <div class="details__product">
+    <div class="details__product__title">
+      <span>
+        <h1>{{ product.title }}</h1>
+        <p>Category: {{ product.category }}</p>
+      </span>
+      <picture>
+        <img [src]="product.image" />
+      </picture>
+    </div>
+    <div class="details__product__infos">
+      <p class="details__product__infos-rating">
+        Rating: {{ product.rating.rate }} ({{ product.rating.count }})
+      </p>
+      <p class="details__product__infos-description">
+        {{ product.description }}
+      </p>
+      <p class="details__product__infos-price">{{ product.price | price }}</p>
+      <div class="details__product__infos-buttons">
+        <button>
+          <i-lucide [img]="heart"></i-lucide>
+          Favorite
+        </button>
+        <button>
+          <i-lucide [img]="shoppingCart"></i-lucide>
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+</main>

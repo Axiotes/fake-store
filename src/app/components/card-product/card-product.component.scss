@@ -10,9 +10,11 @@
     background-color: white;
     cursor: pointer;
     transition: 0.5s;
+    box-shadow: 2px 2px 5px black;
 
     @media (max-width: $screen-XSmall) {
         max-width: 130px;
+        height: 300px;
         @include flex-center(column, 10px);
         margin-top: 10px;
     }

@@ -1,0 +1,123 @@
+@import "../../../style/_mixins";
+@import "../../../style/_variables";
+
+:host {
+  width: 100%;
+  min-height: 88vh;
+  @include flex-center(column, 20px);
+  background-color: $light-gray;
+}
+
+.details {
+  width: 100%;
+  background-color: $light-gray;
+  padding: 5%;
+
+  &__product {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 2px 2px 5px black;
+    @include flex-center(row, 20px);
+    padding: 30px;
+
+    @media (max-width: $screen-Small) {
+      flex-direction: column;
+    }
+
+    &__title {
+      width: 60%;
+      height: 100%;
+      @include flex-center(column, 20px);
+
+      @media (max-width: $screen-Small) {
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 22px;
+        font-weight: 700;
+        color: black;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: 400;
+        color: black;
+        opacity: 0.7;
+      }
+
+      picture {
+        width: 100%;
+        height: 100%;
+        max-width: 600px;
+        max-height: 500px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          max-width: 600px;
+          max-height: 500px;
+          object-fit: contain;
+        }
+      }
+    }
+
+    &__infos {
+      width: 40%;
+      height: 100%;
+      @include flex-center(column, 20px);
+      align-items: start;
+
+      @media (max-width: $screen-Small) {
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      &-rating {
+        font-size: 16px;
+        font-weight: 400;
+        color: black;
+      }
+
+      &-description {
+        font-size: 18px;
+        font-weight: 500;
+        color: black;
+      }
+
+      &-price {
+        font-size: 26px;
+        font-weight: 600;
+        color: black;
+      }
+
+      &-buttons {
+        width: 100%;
+        @include grid-container(2, 20px);
+
+        button {
+          width: 100%;
+          height: 50px;
+          background-color: transparent;
+          border: 2px solid $blue;
+          border-radius: 15px;
+          @include flex-center(row, 10px);
+          color: $blue;
+          transition: 0.5s;
+          cursor: pointer;
+
+          @media (max-width: $screen-Small) {
+            gap: 5px;
+          }
+
+          &:hover {
+            background-color: $blue;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
