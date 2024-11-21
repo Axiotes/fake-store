@@ -4,6 +4,7 @@ import { ApiProductsService } from '../../services/api-products.service';
 import { Product } from '../../../types/product.type';
 import { LucideIconData } from 'lucide-angular/icons/types';
 import { Heart, ShoppingCart } from 'lucide-angular';
+import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'app-details',
@@ -28,7 +29,8 @@ export class DetailsComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private apiProductsService: ApiProductsService
+    private apiProductsService: ApiProductsService,
+    private storageService: StorageService
   ) {}
 
   ngOnInit(): void {
@@ -36,6 +38,11 @@ export class DetailsComponent implements OnInit {
       const id = params.get('id') as string;
       this.getProduct(id);
     });
+  }
+
+  public favoriteProduct(): void {
+    console.log('Favorite product');
+    this.storageService.setItem('favorites', this.product);
   }
 
   private getProduct(id: string): void {

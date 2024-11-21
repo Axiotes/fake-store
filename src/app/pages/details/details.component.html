@@ -18,7 +18,7 @@
       </p>
       <p class="details__product__infos-price">{{ product.price | price }}</p>
       <div class="details__product__infos-buttons">
-        <button>
+        <button (click)="favoriteProduct()">
           <i-lucide [img]="heart"></i-lucide>
           Favorite
         </button>
