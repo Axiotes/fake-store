@@ -7,8 +7,16 @@ import { Product } from '../../types/product.type';
 })
 export class StorageService {
   public getItem(key: StorageKey): { products: Product[] } | null {
-    const value = localStorage.getItem(key);
-    return value ? (JSON.parse(value) as { products: Product[] }) : null;
+    if (
+      typeof window !== 'undefined' &&
+      typeof window.localStorage !== 'undefined' &&
+      typeof localStorage !== 'undefined'
+    ) {
+      const value = localStorage.getItem(key);
+      return value ? (JSON.parse(value) as { products: Product[] }) : null;
+    }
+
+    return null;
   }
 
   public addItem(key: StorageKey, product: Product): void {
@@ -27,12 +35,12 @@ export class StorageService {
     localStorage.setItem(key, JSON.stringify(newValue));
   }
 
-  public verifyItemExist(key: StorageKey, product: Product): boolean {
+  public verifyItemExist(key: StorageKey, id: number): boolean {
     const value = this.getItem(key);
 
     if (value) {
       for (const p of value.products) {
-        if (p.id === product.id) {
+        if (p.id === id) {
           return true;
         }
       }
