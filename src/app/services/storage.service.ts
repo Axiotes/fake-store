@@ -6,7 +6,12 @@ import { Product } from '../../types/product.type';
   providedIn: 'root',
 })
 export class StorageService {
-  public setItem(key: StorageKey, product: Product): void {
+  public getItem(key: StorageKey): { products: Product[] } | null {
+    const value = localStorage.getItem(key);
+    return value ? (JSON.parse(value) as { products: Product[] }) : null;
+  }
+
+  public addItem(key: StorageKey, product: Product): void {
     const value = this.getItem(key);
     let newValue = { products: [] as Product[] };
 
@@ -22,8 +27,33 @@ export class StorageService {
     localStorage.setItem(key, JSON.stringify(newValue));
   }
 
-  public getItem(key: StorageKey): { products: Product[] } | null {
-    const value = localStorage.getItem(key);
-    return value ? (JSON.parse(value) as { products: Product[] }) : null;
+  public verifyItemExist(key: StorageKey, product: Product): boolean {
+    const value = this.getItem(key);
+
+    if (value) {
+      for (const p of value.products) {
+        if (p.id === product.id) {
+          return true;
+        }
+      }
+    }
+
+    return false;
+  }
+
+  public removeItem(key: StorageKey, product: Product): void {
+    const value = this.getItem(key);
+
+    if (value) {
+      const newValue = { products: [] as Product[] };
+
+      value.products.forEach((p) => {
+        if (p.id !== product.id) {
+          newValue.products.push(p);
+        }
+      });
+
+      localStorage.setItem(key, JSON.stringify(newValue));
+    }
   }
 }

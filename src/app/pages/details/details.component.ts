@@ -41,8 +41,17 @@ export class DetailsComponent implements OnInit {
   }
 
   public favoriteProduct(): void {
-    console.log('Favorite product');
-    this.storageService.setItem('favorites', this.product);
+    const alreadyFavorite = this.storageService.verifyItemExist(
+      'favorites',
+      this.product
+    );
+
+    if (alreadyFavorite) {
+      this.storageService.removeItem('favorites', this.product);
+      return;
+    }
+
+    this.storageService.addItem('favorites', this.product);
   }
 
   private getProduct(id: string): void {
