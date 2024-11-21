@@ -9,6 +9,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { CommonModule } from '@angular/common';
 import { CategoryComponent } from './pages/category/category.component';
 import { DetailsComponent } from './pages/details/details.component';
+import { PipesModule } from './pipes/pipes.module';
+import { LucideAngularModule } from 'lucide-angular';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { DetailsComponent } from './pages/details/details.component';
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    ComponentsModule
+    ComponentsModule,
+    PipesModule,
+    LucideAngularModule,
   ],
   providers: [
     provideClientHydration(),
