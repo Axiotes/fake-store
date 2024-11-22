@@ -1,17 +1,21 @@
 <div class="product">
   <div class="product__title">
     <picture>
-      <img src="/assets/dev-card-product.webp" />
+      <img [src]="image" />
     </picture>
     <div>
-      <h3>Product Name</h3>
-      <p>Product price</p>
+      <h3>{{ title | truncate }}</h3>
+      <p>{{ price | price }}</p>
     </div>
   </div>
   <div class="product__quantity">
-    <button>-</button>
-    <span>1</span>
-    <button>+</button>
+    <button (click)="alterQuantityProduct('decrease')">-</button>
+    <span>{{ quantity }}</span>
+    <button (click)="alterQuantityProduct('increase')">+</button>
   </div>
-  <i-lucide [img]="trash" class="product__icon"></i-lucide>
+  <i-lucide
+    [img]="trash"
+    class="product__icon"
+    (click)="removeProduct()"
+  ></i-lucide>
 </div>
