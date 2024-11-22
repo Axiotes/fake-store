@@ -1,1 +1,15 @@
-<p>favorites works!</p>
+<main class="favorites">
+  <h1 *ngIf="products.length !== 0">Favorites</h1>
+  <h1 *ngIf="products.length < 0">You don't have favorite products</h1>
+  <div>
+    <app-card-product
+      *ngFor="let product of products"
+      [image]="product.image"
+      [title]="product.title"
+      [rate]="product.rating.rate"
+      [count]="product.rating.count"
+      [price]="product.price"
+      (click)="selectedProduct(product.id)"
+    ></app-card-product>
+  </div>
+</main>
