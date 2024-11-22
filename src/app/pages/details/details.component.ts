@@ -4,6 +4,7 @@ import { ApiProductsService } from '../../services/api-products.service';
 import { Product } from '../../../types/product.type';
 import { LucideIconData } from 'lucide-angular/icons/types';
 import { Heart, ShoppingCart } from 'lucide-angular';
+import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'app-details',
@@ -25,17 +26,31 @@ export class DetailsComponent implements OnInit {
   };
   public shoppingCart: LucideIconData = ShoppingCart;
   public heart: LucideIconData = Heart;
+  public favorited!: boolean;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private apiProductsService: ApiProductsService
+    private apiProductsService: ApiProductsService,
+    private storageService: StorageService
   ) {}
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((params) => {
       const id = params.get('id') as string;
       this.getProduct(id);
+      this.verifyFavorite(Number(id));
     });
+  }
+
+  public favoriteProduct(): void {
+    if (this.favorited) {
+      this.storageService.removeItem('favorites', this.product);
+      this.favorited = false;
+      return;
+    }
+
+    this.storageService.addItem('favorites', this.product);
+    this.favorited = true;
   }
 
   private getProduct(id: string): void {
@@ -47,5 +62,9 @@ export class DetailsComponent implements OnInit {
         console.error(error);
       },
     });
+  }
+
+  private verifyFavorite(id: number): void {
+    this.favorited = this.storageService.verifyItemExist('favorites', id);
   }
 }

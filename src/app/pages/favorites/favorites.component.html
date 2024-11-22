@@ -1,7 +1,7 @@
-<main class="category">
-  <h1>{{ category }}</h1>
-
-  <div class="category__products">
+<main class="favorites">
+  <h1 *ngIf="products.length !== 0">Favorites</h1>
+  <h1 *ngIf="products.length === 0">You don't have favorite products</h1>
+  <div class="favorites__products">
     <app-card-product
       *ngFor="let product of products"
       [image]="product.image"

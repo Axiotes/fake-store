@@ -1,0 +1,28 @@
+@import "../../../style/_mixins";
+@import "../../../style/_variables";
+
+:host {
+  width: 100%;
+  min-height: 88vh;
+}
+
+.favorites {
+  background-color: $light-gray;
+  width: 100%;
+  min-height: 88vh;
+  padding: 5%;
+  @include flex-center(column, 50px);
+
+  h1 {
+    color: black;
+    font-size: 26px;
+  }
+
+  &__products {
+    width: 100%;
+    max-width: 1380px;
+    @include flex-center(row, 50px);
+    flex-wrap: wrap;
+    row-gap: 50px;
+  }
+}

@@ -11,13 +11,15 @@ import { CategoryComponent } from './pages/category/category.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { PipesModule } from './pipes/pipes.module';
 import { LucideAngularModule } from 'lucide-angular';
+import { FavoritesComponent } from './pages/favorites/favorites.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CategoryComponent,
-    DetailsComponent
+    DetailsComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,

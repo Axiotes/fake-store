@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../../../types/product.type';
 import { ApiCategoriesService } from '../../services/api-categories.service';
 import { Category } from '../../../types/category.type';
@@ -15,7 +15,8 @@ export class CategoryComponent implements OnInit {
 
   constructor(
     private activeRoute: ActivatedRoute,
-    private apiCategoriesService: ApiCategoriesService
+    private apiCategoriesService: ApiCategoriesService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -23,6 +24,10 @@ export class CategoryComponent implements OnInit {
       this.category = params.get('category') as Category;
       this.getProductsCategory(this.category);
     });
+  }
+
+  public selectedProduct(id: number): void {
+    this.router.navigate(['/details', id]);
   }
 
   private getProductsCategory(category: Category): void {
