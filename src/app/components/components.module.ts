@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { RouterLink } from '@angular/router';
 import { CardCategoryComponent } from './card-category/card-category.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { ProductCartComponent } from './product-cart/product-cart.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { CarouselComponent } from './carousel/carousel.component';
     HeaderComponent,
     CardCategoryComponent,
     CarouselComponent,
+    ProductCartComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +28,7 @@ import { CarouselComponent } from './carousel/carousel.component';
     HeaderComponent,
     CardCategoryComponent,
     CarouselComponent,
+    ProductCartComponent,
   ]
 })
 export class ComponentsModule { }
