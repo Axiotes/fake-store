@@ -27,6 +27,7 @@ export class DetailsComponent implements OnInit {
   public shoppingCart: LucideIconData = ShoppingCart;
   public heart: LucideIconData = Heart;
   public favorited!: boolean;
+  public inCart!: boolean;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -39,6 +40,7 @@ export class DetailsComponent implements OnInit {
       const id = params.get('id') as string;
       this.getProduct(id);
       this.verifyFavorite(Number(id));
+      this.verifyCart(Number(id));
     });
   }
 
@@ -51,6 +53,18 @@ export class DetailsComponent implements OnInit {
 
     this.storageService.addItem('favorites', this.product);
     this.favorited = true;
+  }
+
+  public addToCart(): void {
+    if (this.inCart) {
+      this.storageService.removeItem('cart', this.product);
+      this.inCart = false;
+      return;
+    }
+
+    const product = this.parseToProduct(this.product, 1);
+    this.storageService.addItem('cart', product);
+    this.inCart = true;
   }
 
   private getProduct(id: string): void {
@@ -66,5 +80,22 @@ export class DetailsComponent implements OnInit {
 
   private verifyFavorite(id: number): void {
     this.favorited = this.storageService.verifyItemExist('favorites', id);
+  }
+
+  private verifyCart(id: number): void {
+    this.inCart = this.storageService.verifyItemExist('cart', id);
+  }
+
+  private parseToProduct(product: Product, quantity: number): Product {
+    return {
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      description: product.description,
+      category: product.category,
+      image: product.image,
+      rating: product.rating,
+      quantity: quantity,
+    } as Product;
   }
 }
