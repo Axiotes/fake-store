@@ -11,4 +11,5 @@ export type Product = {
     rate: number;
     count: number;
   };
+  quantity?: number;
 };

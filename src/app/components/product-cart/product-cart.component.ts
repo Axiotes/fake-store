@@ -24,7 +24,7 @@ export class ProductCartComponent {
   public price!: number;
 
   @Input()
-  public quantity!: number;
+  public quantity?: number;
 
   public trash: LucideIconData = Trash2;
 

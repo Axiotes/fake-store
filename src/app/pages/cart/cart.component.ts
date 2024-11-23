@@ -13,10 +13,28 @@ export class CartComponent implements OnInit {
   constructor(private storageService: StorageService) {}
 
   ngOnInit(): void {
-    const value = this.storageService.getItem('favorites');
+    const value = this.storageService.getItem('cart');
 
     if (value) {
       this.products = value.products;
     }
+  }
+
+  public multiplyValues(price: number, quantity?: number): number {
+    if (!quantity) {
+      return price;
+    }
+
+    return price * quantity;
+  }
+
+  public total(): number {
+    let total = 0;
+
+    this.products.forEach((product) => {
+      total += this.multiplyValues(product.price, product.quantity);
+    });
+
+    return total;
   }
 }
