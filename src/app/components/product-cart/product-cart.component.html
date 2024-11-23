@@ -9,9 +9,9 @@
     </div>
   </div>
   <div class="product__quantity">
-    <button (click)="alterQuantityProduct('decrease')">-</button>
+    <button (click)="alterQuantityProduct('decrement')">-</button>
     <span>{{ quantity }}</span>
-    <button (click)="alterQuantityProduct('increase')">+</button>
+    <button (click)="alterQuantityProduct('increment')">+</button>
   </div>
   <i-lucide
     [img]="trash"

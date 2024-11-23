@@ -37,4 +37,19 @@ export class CartComponent implements OnInit {
 
     return total;
   }
+
+  public alterQuantity(id: number, value: string): void {
+    this.products.map((product) => {
+      if (!product.quantity) return;
+
+      const values: { [key: string]: number } = {
+        increment: 1,
+        decrement: product.quantity > 1 ? -1 : 0,
+      };
+
+      if (product.id === id) {
+        product.quantity += values[value];
+      }
+    });
+  }
 }
