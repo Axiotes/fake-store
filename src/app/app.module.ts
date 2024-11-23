@@ -12,6 +12,7 @@ import { DetailsComponent } from './pages/details/details.component';
 import { PipesModule } from './pipes/pipes.module';
 import { LucideAngularModule } from 'lucide-angular';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
+import { CartComponent } from './pages/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FavoritesComponent } from './pages/favorites/favorites.component';
     HomeComponent,
     CategoryComponent,
     DetailsComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

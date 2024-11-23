@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiProductsService } from '../../services/api-products.service';
 import { Product } from '../../../types/product.type';
 import { LucideIconData } from 'lucide-angular/icons/types';
-import { Heart, ShoppingCart } from 'lucide-angular';
+import { Heart, ShoppingBasket, ShoppingCart } from 'lucide-angular';
 import { StorageService } from '../../services/storage.service';
 
 @Component({
@@ -26,12 +26,15 @@ export class DetailsComponent implements OnInit {
   };
   public shoppingCart: LucideIconData = ShoppingCart;
   public heart: LucideIconData = Heart;
+  public shoppingBasket: LucideIconData = ShoppingBasket;
   public favorited!: boolean;
+  public inCart!: boolean;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private apiProductsService: ApiProductsService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -39,6 +42,7 @@ export class DetailsComponent implements OnInit {
       const id = params.get('id') as string;
       this.getProduct(id);
       this.verifyFavorite(Number(id));
+      this.verifyCart(Number(id));
     });
   }
 
@@ -51,6 +55,28 @@ export class DetailsComponent implements OnInit {
 
     this.storageService.addItem('favorites', this.product);
     this.favorited = true;
+  }
+
+  public addToCart(): void {
+    if (this.inCart) {
+      this.storageService.removeItem('cart', this.product);
+      this.inCart = false;
+      return;
+    }
+
+    const product = this.parseToProduct(this.product, 1);
+    this.storageService.addItem('cart', product);
+    this.inCart = true;
+  }
+
+  public buyNow(): void {
+    if (!this.inCart) {
+      const product = this.parseToProduct(this.product, 1);
+      this.storageService.addItem('cart', product);
+      this.inCart = true;
+    }
+
+    this.router.navigate(['/cart']);
   }
 
   private getProduct(id: string): void {
@@ -66,5 +92,22 @@ export class DetailsComponent implements OnInit {
 
   private verifyFavorite(id: number): void {
     this.favorited = this.storageService.verifyItemExist('favorites', id);
+  }
+
+  private verifyCart(id: number): void {
+    this.inCart = this.storageService.verifyItemExist('cart', id);
+  }
+
+  private parseToProduct(product: Product, quantity: number): Product {
+    return {
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      description: product.description,
+      category: product.category,
+      image: product.image,
+      rating: product.rating,
+      quantity: quantity,
+    } as Product;
   }
 }

@@ -1,0 +1,21 @@
+<div class="product">
+  <div class="product__title">
+    <picture>
+      <img [src]="image" (click)="selectProduct()" />
+    </picture>
+    <div>
+      <h3>{{ title | truncate }}</h3>
+      <p>{{ price | price }}</p>
+    </div>
+  </div>
+  <div class="product__quantity">
+    <button (click)="alterQuantityProduct('decrement')">-</button>
+    <span>{{ quantity }}</span>
+    <button (click)="alterQuantityProduct('increment')">+</button>
+  </div>
+  <i-lucide
+    [img]="trash"
+    class="product__icon"
+    (click)="removeProduct()"
+  ></i-lucide>
+</div>

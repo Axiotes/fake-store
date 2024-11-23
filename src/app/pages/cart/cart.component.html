@@ -1,0 +1,27 @@
+<main class="cart">
+  <div class="cart__products">
+    <h1 *ngIf="products.length === 0">Your cart is empty</h1>
+    <app-product-cart
+      *ngFor="let product of products"
+      [image]="product.image"
+      [title]="product.title"
+      [price]="product.price"
+      [quantity]="product.quantity"
+      (alterQuantity)="alterQuantity(product.id, $event)"
+      (remove)="removeProduct(product)"
+      (selectedProduct)="selectedProduct(product.id)"
+    ></app-product-cart>
+  </div>
+  <div class="cart__infos" *ngIf="products.length !== 0">
+    <span *ngFor="let product of products">
+      <p>{{ product.price }}</p>
+      X
+      <p>{{ product.quantity }}</p>
+      =
+      <p>{{ multiplyValues(product.price, product.quantity) | price }}</p>
+    </span>
+    <hr />
+    <p>Total: {{ total() | price }}</p>
+    <button (click)="pay()">Pay</button>
+  </div>
+</main>

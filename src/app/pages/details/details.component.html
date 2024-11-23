@@ -22,11 +22,15 @@
           <i-lucide [img]="heart"></i-lucide>
           Favorite
         </button>
-        <button>
+        <button (click)="addToCart()" [ngClass]="{ cart: inCart }">
           <i-lucide [img]="shoppingCart"></i-lucide>
           Add to Cart
         </button>
       </div>
+      <button class="details__product__infos-buy" (click)="buyNow()">
+        <i-lucide [img]="shoppingCart"></i-lucide>
+        Buy Now
+      </button>
     </div>
   </div>
 </main>
