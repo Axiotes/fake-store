@@ -64,10 +64,5 @@
     cursor: pointer;
     box-shadow: 0 0 10px rgba(black, 0.1);
     transition: 0.5s;
-
-    &:hover {
-      background-color: $blue;
-      color: white;
-    }
   }
 }

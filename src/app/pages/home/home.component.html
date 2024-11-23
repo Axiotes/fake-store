@@ -1,5 +1,6 @@
 <main class="home">
   <!-- <div class="home__carousel">
+    NAO TA RESPONSIVO
     <app-carousel [products]="eletronicProducts"></app-carousel>
   </div> -->
   <div class="home__categories">
@@ -22,6 +23,7 @@
   </div>
   <button
     *ngIf="quantityProducts < allProducts.length"
+    appChangeColor
     (click)="loadMore()"
     class="home__load-more"
   >

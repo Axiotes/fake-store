@@ -13,6 +13,7 @@ import { PipesModule } from './pipes/pipes.module';
 import { LucideAngularModule } from 'lucide-angular';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { DirectivesModule } from './directives/directives.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { CartComponent } from './pages/cart/cart.component';
     CategoryComponent,
     DetailsComponent,
     FavoritesComponent,
-    CartComponent
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +31,7 @@ import { CartComponent } from './pages/cart/cart.component';
     ComponentsModule,
     PipesModule,
     LucideAngularModule,
+    DirectivesModule
   ],
   providers: [
     provideClientHydration(),
