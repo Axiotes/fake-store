@@ -7,6 +7,7 @@
       [price]="product.price"
       [quantity]="product.quantity"
       (alterQuantity)="alterQuantity(product.id, $event)"
+      (remove)="removeProduct(product)"
     ></app-product-cart>
   </div>
   <div class="cart__infos">

@@ -13,11 +13,7 @@ export class CartComponent implements OnInit {
   constructor(private storageService: StorageService) {}
 
   ngOnInit(): void {
-    const value = this.storageService.getItem('cart');
-
-    if (value) {
-      this.products = value.products;
-    }
+    this.getProducts();
   }
 
   public multiplyValues(price: number, quantity?: number): number {
@@ -51,5 +47,18 @@ export class CartComponent implements OnInit {
         product.quantity += values[value];
       }
     });
+  }
+
+  public removeProduct(product: Product): void {
+    this.storageService.removeItem('cart', product);
+    this.getProducts();
+  }
+
+  private getProducts(): void {
+    const value = this.storageService.getItem('cart');
+
+    if (value) {
+      this.products = value.products;
+    }
   }
 }
