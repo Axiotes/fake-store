@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from '../../services/storage.service';
 import { Product } from '../../../types/product.type';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +11,7 @@ import { Product } from '../../../types/product.type';
 export class CartComponent implements OnInit {
   public products: Product[] = [];
 
-  constructor(private storageService: StorageService) {}
+  constructor(private storageService: StorageService, private router: Router) {}
 
   ngOnInit(): void {
     this.getProducts();
@@ -52,6 +53,14 @@ export class CartComponent implements OnInit {
   public removeProduct(product: Product): void {
     this.storageService.removeItem('cart', product);
     this.getProducts();
+  }
+
+  public selectedProduct(id: number): void {
+    this.router.navigate(['/details', id]);
+  }
+
+  public pay() {
+    alert('Essa loja não é real, mas obrigado por tentar realizar a compra! 😊');
   }
 
   private getProducts(): void {

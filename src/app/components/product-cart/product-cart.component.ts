@@ -14,6 +14,9 @@ export class ProductCartComponent {
   @Output()
   public alterQuantity: EventEmitter<string> = new EventEmitter<string>();
 
+  @Output()
+  public selectedProduct: EventEmitter<void> = new EventEmitter<void>();
+
   @Input()
   public image!: string;
 
@@ -34,5 +37,9 @@ export class ProductCartComponent {
 
   public alterQuantityProduct(value: string): void {
     this.alterQuantity.emit(value);
+  }
+
+  public selectProduct(): void {
+    this.selectedProduct.emit();
   }
 }
