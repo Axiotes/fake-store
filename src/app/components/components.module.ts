@@ -8,6 +8,7 @@ import { RouterLink } from '@angular/router';
 import { CardCategoryComponent } from './card-category/card-category.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { ProductCartComponent } from './product-cart/product-cart.component';
+import { DirectivesModule } from '../directives/directives.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ProductCartComponent } from './product-cart/product-cart.component';
     CommonModule,
     LucideAngularModule,
     PipesModule,
-    RouterLink
+    RouterLink,
+    DirectivesModule
   ],
   exports: [
     CardProductComponent,
