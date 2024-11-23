@@ -1,4 +1,6 @@
-# FakeStore
+# Fake Store
+
+**Fake Store** é uma aplicação desenvolvida com Angular que simula uma loja virtual, consumindo dados de produtos de uma API externa: [Fake Store API](https://fakestoreapi.com/).
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.10.
 
